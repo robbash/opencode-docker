@@ -38,6 +38,12 @@ beyond container recreation.
 I've created an alias called `opencode` so I can pretty much work with is as if
 it was installed.
 
+### Preventing in HOME
+
+To avoid accidentally starting opencode in your home directory, there's a check
+for certain files. If they are present, you will get an error message. For false
+positives, you can get around overwriting the CMD.
+
 ### Authenticating a provider
 
 According to the [OpenCode docs](https://opencode.ai/docs/#configure) you can

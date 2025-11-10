@@ -20,5 +20,9 @@ USER coder
 
 RUN mkdir -p /home/coder/.local/share/opencode
 
+# Copy entrypoint script
+COPY --chown=coder:coder entrypoint.sh /usr/local/bin/entrypoint.sh
+RUN chmod +x /usr/local/bin/entrypoint.sh
+
 # Default command
-CMD ["opencode"]
+CMD ["/usr/local/bin/entrypoint.sh"]
