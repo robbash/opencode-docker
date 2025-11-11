@@ -24,10 +24,22 @@ When running the Docker container, make sure to mount the OpenCode config/cache
 folders:
 
 ```
+# Minimal
 docker run -it --rm \
     -v .:/workspace \
     -v ~/.config/opencode:/home/coder/.config/opencode \
     -v ~/.local/share/opencode:/home/coder/.local/share/opencode \
+    --name opencode-docker \
+    opencode-docker
+
+# For different project folders and username in prompt use the following (recommended)
+docker run -it --rm \
+    -e "USER=$USER" \
+    -w "/workspace/$(basename "$PWD")" \
+    -v ~/.gitconfig:/home/coder/.gitconfig \
+    -v ~/.config/opencode:/home/coder/.config/opencode \
+    -v ~/.local/share/opencode:/home/coder/.local/share/opencode \
+    -v ".:/workspace/$(basename "$PWD")" \
     --name "opencode-docker-$(basename "$PWD")" \
     opencode-docker
 ```

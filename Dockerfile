@@ -3,6 +3,7 @@ FROM node:20-slim
 # Install additional dependencies
 RUN apt-get update && apt-get install -y \
     git \
+    neovim \
     && rm -rf /var/lib/apt/lists/*
 
 # Install OpenCode globally
@@ -17,6 +18,8 @@ RUN groupadd -g 1001 coder && \
     chown -R coder:coder /workspace
 
 USER coder
+
+ENV USER="Coder"
 
 RUN mkdir -p /home/coder/.local/share/opencode
 
