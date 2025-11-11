@@ -28,7 +28,8 @@ docker run -it --rm \
     -v .:/workspace \
     -v ~/.config/opencode:/home/coder/.config/opencode \
     -v ~/.local/share/opencode:/home/coder/.local/share/opencode \
-    --name opencode-docker opencode-docker
+    --name "opencode-docker-$(basename "$PWD")" \
+    opencode-docker
 ```
 
 I had OpenCode installed on my computer, therefore the folders above were
