@@ -2,8 +2,10 @@ FROM node:20-slim
 
 # Install additional dependencies
 RUN apt-get update && apt-get install -y \
+    fzf \
     git \
     neovim \
+    ripgrep \
     && rm -rf /var/lib/apt/lists/*
 
 # Install OpenCode globally
